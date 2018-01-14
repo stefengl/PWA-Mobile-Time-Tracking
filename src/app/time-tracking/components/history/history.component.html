@@ -4,7 +4,7 @@
     <mat-card-title>History</mat-card-title>
     <mat-card-subtitle *ngIf="timerecords.length == 0">No records found</mat-card-subtitle>
     <mat-card-content>
-      <mat-list dense>
+      <mat-list>
         <div *ngFor="let groupedEntryByDay of groupedEntriesByDay; let i = index">
           <h3 mat-subheader>Day {{groupedEntryByDay.date | date}}</h3>
           <mat-list-item *ngFor="let record of groupedEntryByDay.records">

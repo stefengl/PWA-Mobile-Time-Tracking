@@ -1,6 +1,7 @@
 {
-    "name": "Time Tracking",
-    "start_url":"/",
+    "name": "PWA-Mobile-Time-Tracking",
+    "short_name": "PWA-TT",
+    "start_url":"/index.html",
     "icons": [
         {
             "src": "/assets/favicons/android-chrome-192x192.png",

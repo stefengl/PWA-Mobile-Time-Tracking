@@ -1,3 +1,15 @@
-<p>
-  settings works!
-</p>
+<section class="settings-wrapper" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="10%">
+
+  <mat-list>
+    <mat-list-item>
+      {{"Environment: " + env}}
+    </mat-list-item>
+    <mat-list-item *ngFor="let setting of settings">
+      {{setting}}
+    </mat-list-item>
+  </mat-list>
+
+  <button mat-icon-button (click)="signOut()" fxFlexAlign="end">
+    <mat-icon matListIcon color="warn">power_settings_new</mat-icon>
+  </button>
+</section>
