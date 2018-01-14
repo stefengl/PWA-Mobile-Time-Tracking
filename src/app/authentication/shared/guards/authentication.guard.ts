@@ -16,14 +16,14 @@ export class AuthenticationGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     const user = this.auth.user;
-    let isAuthenticated : boolean = (user) ? true : false;
+    const isAuthenticated: boolean = (user) ? true : false;
 
-    if(isAuthenticated){
+    if (isAuthenticated) {
       return true;
     }
 
-    this.router.navigate([''])
+    this.router.navigate(['']);
     return false;
   }
-  
+
 }

@@ -15,28 +15,28 @@ export class DataService {
     private fireDb: AngularFireDatabase) { }
 
   getCategories() {
-    this.categories = this.fireDb.list('categories').valueChanges()
+    this.categories = this.fireDb.list('categories').valueChanges();
   }
 
   getTags() {
-    this.tags = this.fireDb.list('tags').valueChanges()
+    this.tags = this.fireDb.list('tags').valueChanges();
 
   }
 
   getRecords() {
-    const id = this.auth.user.uid
+    const id = this.auth.user.uid;
     this.timerecords = this.fireDb.list<TimeRecordModel>(id).valueChanges();
   }
 
   addRecord(record: TimeRecordModel) {
-    const id = this.auth.user.uid
+    const id = this.auth.user.uid;
     const timeRecordRef = this.fireDb.list(id);
 
     const recordToAdd = Object.assign(
       {},
       record,
       { date: record.date.toString() }
-    )
+    );
 
     timeRecordRef.push(recordToAdd);
   }

@@ -25,17 +25,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
 
-  public authenticate() : void {
+  public authenticate(): void {
     this.auth.authenticate(this.loginModel)
       .then(() => this.toHome())
       .catch((err) => console.log(err.code));
   }
 
-  public toRegistration() : void {
+  public toRegistration(): void {
     this.router.navigate(['/registration']);
   }
 
-  public toHome() : void {
+  public toHome(): void {
     this.snackbar.open('You are authenticated', '', {
       duration: 1000
     }).afterDismissed().subscribe(() => {

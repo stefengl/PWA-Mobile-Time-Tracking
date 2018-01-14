@@ -23,7 +23,7 @@ export class TabsComponent implements OnInit {
   timerecords: TimeRecordModel[] = [];
   tags: string[] = [];
 
-  selectedTabIndex: number = 0;
+  selectedTabIndex = 0;
 
   constructor(
     private data: DataService,
@@ -47,19 +47,19 @@ export class TabsComponent implements OnInit {
   }
 
   private handleSubscriptions(): void {
-    this.data.categories.subscribe((categories) => this.categories = [...categories])
-    this.data.tags.subscribe((tags) => this.tags = [...tags])
+    this.data.categories.subscribe((categories) => this.categories = [...categories]);
+    this.data.tags.subscribe((tags) => this.tags = [...tags]);
     this.data.timerecords.subscribe((timerecords) => {
      const parsedRecords = this.parseStringToDate(timerecords);
-      this.timerecords = [...parsedRecords]
-    })
+      this.timerecords = [...parsedRecords];
+    });
 
   }
 
   parseStringToDate(timerecords: TimeRecordModel[]): TimeRecordModel[] {
-    let parsedRecords = timerecords.map((t: TimeRecordModel) =>
+    const parsedRecords = timerecords.map((t: TimeRecordModel) =>
       Object.assign({}, t, { date: new Date(t.date) })
-    )
+    );
 
     return parsedRecords;
   }

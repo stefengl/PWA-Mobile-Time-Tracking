@@ -24,13 +24,13 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() { }
 
-  public register() : void {
+  public register(): void {
     this.auth.register(this.model)
       .then(() => this.toHome())
-      .catch((err) => console.warn(err.code))
+      .catch((err) => console.warn(err.code));
   }
 
-  public toHome() : void {
+  public toHome(): void {
     this.snackbar.open('You are registered', undefined, {
       duration: 1000
     }).afterDismissed().subscribe(() => {

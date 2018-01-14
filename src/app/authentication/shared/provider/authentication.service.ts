@@ -16,15 +16,15 @@ export class AuthenticationService {
     private fireAuth: AngularFireAuth,
     private router: Router) {
 
-    this.handleAuthChange()
+    this.handleAuthChange();
   }
 
   handleAuthChange(): void {
     this.fireAuth.auth.onAuthStateChanged((user: User) => {
       if (user) {
-        this.user = user
+        this.user = user;
       } else {
-        this.user = null
+        this.user = null;
       }
     });
   }

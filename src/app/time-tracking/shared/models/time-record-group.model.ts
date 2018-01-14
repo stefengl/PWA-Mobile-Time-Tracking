@@ -1,4 +1,4 @@
-import { TimeRecordModel } from "./time-record.model";
+import { TimeRecordModel } from './time-record.model';
 
 export class TimeRecordGroupModel {
     date: Date;

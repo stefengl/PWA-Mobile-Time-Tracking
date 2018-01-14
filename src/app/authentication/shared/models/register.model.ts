@@ -1,4 +1,4 @@
-import { ILoginModel } from "./interfaces/i-login.model";
+import { ILoginModel } from './interfaces/i-login.model';
 
 export class RegisterModel implements ILoginModel {
     email: string;

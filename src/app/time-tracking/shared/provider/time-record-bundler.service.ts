@@ -12,7 +12,7 @@ export class TimeRecordBundlerService {
 
     const dailyEntries: TimeRecordGroupModel[] = [];
 
-    const bundledRecords : _.Dictionary<TimeRecordModel[]> = _.chain(records)
+    const bundledRecords: _.Dictionary<TimeRecordModel[]> = _.chain(records)
       .sortBy(r => r.date)
       .groupBy(r => r.date)
       .value();
@@ -20,7 +20,6 @@ export class TimeRecordBundlerService {
     _.each(bundledRecords, records => {
       dailyEntries.push(new TimeRecordGroupModel(records));
     });
-
 
     return dailyEntries.reverse();
   }

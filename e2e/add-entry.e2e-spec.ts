@@ -13,7 +13,7 @@ describe('Authenticated User wants to create a new TimeRecord', () => {
     });
 
     it('User with valid credentials should login', (done) => {
-        let expected = '/'
+        const expected = '/';
 
         app.navigateTo('/login');
         app.loginWith('stef.engl.se@gmail.com', 'Affe1234').then(() => {
@@ -21,12 +21,12 @@ describe('Authenticated User wants to create a new TimeRecord', () => {
             app.getCurrentUrl().then((url: string) => {
                 expect(url).toMatch(expected);
                 done();
-            })
+            });
         });
     });
 
     it('', (done) => {
-        let expected = '/'
+        const expected = '/';
 
         app.navigateTo('/login');
         app.loginWith('stef.engl.se@gmail.com', 'Affe1234').then(() => {
@@ -34,7 +34,7 @@ describe('Authenticated User wants to create a new TimeRecord', () => {
             app.getCurrentUrl().then((url: string) => {
                 expect(url).toMatch(expected);
                 done();
-            })
+            });
         });
     });
 

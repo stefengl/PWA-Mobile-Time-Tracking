@@ -20,7 +20,7 @@ export class EntryComponent implements OnInit {
     time: null,
     tags: null,
     note: null,
-  }
+  };
 
   constructor(
     private snackbar: MatSnackBar,
@@ -31,13 +31,13 @@ export class EntryComponent implements OnInit {
   }
 
   public addRecord(): void {
-    let messageInfo: string = 'Invalid form'
+    let messageInfo = 'Invalid form';
 
-    const isValid: boolean = this.isEntryValid()
+    const isValid: boolean = this.isEntryValid();
     if (isValid) {
-      
+
       this.data.addRecord(this.record);
-      messageInfo = 'Done'
+      messageInfo = 'Done';
     }
 
     this.showInfoSnack(messageInfo, undefined);
@@ -51,13 +51,13 @@ export class EntryComponent implements OnInit {
   }
 
   private isEntryValid(): boolean {
-    let isValid: boolean = false;
+    let isValid = false;
 
     if (this.record.date && this.record.category && this.record.time) {
-      isValid = true
+      isValid = true;
     }
 
-    return isValid
+    return isValid;
   }
 
 }

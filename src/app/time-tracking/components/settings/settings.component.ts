@@ -16,15 +16,15 @@ export class SettingsComponent {
   @Input() tags: string[] = [];
 
   settings: string[] = [
-    "Categories",
-    "Tags",
-    "Notifications",
-    "Timer",
-    "UI",
-    "Licenses",
-    "About us",
-    "Feedback"
-  ]
+    'Categories',
+    'Tags',
+    'Notifications',
+    'Timer',
+    'UI',
+    'Licenses',
+    'About us',
+    'Feedback'
+  ];
 
   env: string = (environment.production) ? 'Production' : 'Development';
 
