@@ -1,0 +1,45 @@
+@mixin container ($width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+    box-sizing: border-box;
+}
+
+@mixin text ($size, $color, $family) {
+    font-size: $size;
+    color: $color;
+    font-family: $family;
+}
+
+@mixin pos($position: relative, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin flex($type, $align-items, $justify-content) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    @if($type=='row') {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+    }
+    @else {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    }
+    -webkit-box-align: $align-items;
+    -ms-flex-align: $align-items;
+    align-items: $align-items;
+    
+    -webkit-box-pack: $justify-content;
+    -ms-flex-pack: $justify-content;
+    justify-content: $justify-content
+}
