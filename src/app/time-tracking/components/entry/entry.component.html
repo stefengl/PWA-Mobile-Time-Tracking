@@ -1,3 +1,55 @@
-<p>
-  entry works!
-</p>
+<section class="entry-wrapper" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5%">
+
+  <mat-card class="entry-card">
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-subtitle>Log a new entry</mat-card-subtitle>
+
+    <!-- Form that takes a date, time, category, tags and a note for posting a new time record -->
+    <form (ngSubmit)="addRecord()" name="entry-form" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5%" autocomplete="off">
+
+      <!-- Datepicker for record timestamp -->
+      <mat-form-field class="full-width">
+        <input [(ngModel)]="record.date" name="entry-date-input" matInput [matDatepicker]="picker" placeholder="Date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Two inline form fields -->
+      <div class="full-width" fxLayout="row nowrap" fxLayoutAlign="start center" fxLayoutGap="10%">
+        <!-- Dropdown for category -->
+        <mat-form-field fxFlex="50%">
+          <mat-select [(ngModel)]="record.category" name="entry-category-select" matInput placeholder="Categories" required>
+            <mat-option *ngFor="let c of categories" [value]="c">{{c}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Dropdown for tags -->
+        <mat-form-field fxFlex="50%">
+          <mat-select [(ngModel)]="record.tags" name="entry-tags-select" matInput placeholder="Tags" multiple>
+            <mat-option *ngFor="let t of tags" [value]="t">{{t}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-- Slider for time -->
+      <mat-slider [(ngModel)]="record.time" name="entry-time-slider" class="full-width" color="primary" [thumbLabel]="true" [tickInterval]="4"
+        [min]="0" [max]="10" [step]="0.25" required></mat-slider>
+
+      <!-- Text input for extra notes -->
+      <mat-form-field class="full-width">
+        <input [(ngModel)]="record.note" name="entry-note-input" matInput type="text" placeholder="Notes (Optional)">
+      </mat-form-field>
+
+      <!-- wrapper of submit and reset buttons -->
+      <div class="full-width" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-icon-button color="warn" type="reset">
+          <mat-icon>replay</mat-icon>
+        </button>
+        <button class="record-submit-btn" mat-icon-button type="submit" color="primary">
+          <mat-icon>check</mat-icon>
+        </button>
+      </div>
+    </form>
+
+  </mat-card>
+
+</section>

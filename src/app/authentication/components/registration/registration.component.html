@@ -1,3 +1,34 @@
-<p>
-  registration works!
-</p>
+<section class="registration-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+  <mat-card class="registration-card">
+    <mat-card-title>Signing Up</mat-card-title>
+    <mat-card-subtitle>Enter your credentials</mat-card-subtitle>
+
+    <form (ngSubmit)="register()" class="registration-form">
+
+      <mat-form-field class="registration-form-field">
+        <input matInput type="text" placeholder="Enter your mail" name="regi-email" [(ngModel)]="model.email" required>
+      </mat-form-field>
+
+      <mat-form-field class="registration-form-field">
+        <input matInput type="password" placeholder="Enter your password" name="regi-pw" [(ngModel)]="model.password" required>
+      </mat-form-field>
+
+      <mat-form-field class="registration-form-field">
+        <input matInput type="password" placeholder="Confirm your password" name="regi-pw-confirm" [(ngModel)]="model.passwordConfirmation"
+          required>
+      </mat-form-field>
+
+      <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button class="registration-btn" mat-raised-button type="submit" color="primary">
+          <mat-icon>check</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </form>
+
+  </mat-card>
+
+
+
+</section>

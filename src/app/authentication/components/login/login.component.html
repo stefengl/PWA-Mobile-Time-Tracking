@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+<section class="login-wrapper" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10%" color="accent">
+
+  <mat-card class="login-card">
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-subtitle>Please sign in</mat-card-subtitle>
+
+    <form (ngSubmit)="authenticate()" autocomplete="off">
+
+      <mat-form-field>
+        <input matInput placeholder="Enter your mail" type="email" name="auth-email" [(ngModel)]="loginModel.email" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" type="password" name="auth-pw" [(ngModel)]="loginModel.password" required>
+      </mat-form-field>
+
+      <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+        <button mat-fab type="submit" class="login-btn" color="accent">
+          <mat-icon>check</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </form>
+
+  </mat-card>
+
+  <a class="registration-btn" [routerLink]="['/registration']" mat-raised-button fxFlexAlign="end" color="primary">Sign Up</a>
+
+</section>

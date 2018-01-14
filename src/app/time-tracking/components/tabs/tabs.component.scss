@@ -1,0 +1,12 @@
+@import "../../../styles/mixins";
+
+.tabs-wrapper{
+    @include container(100vw, 100%);
+    background: #fcfcfc;
+    
+    .tabs-tab-content{
+        width: 100vw;
+        box-sizing: border-box;
+        padding: 2em 1em 2em;
+    }
+}

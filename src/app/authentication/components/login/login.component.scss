@@ -1,0 +1,15 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.login-wrapper {
+  @include container(100vw, 100%);
+  background-color: $accent;
+  padding: 1.25em;
+  .login-card {
+    max-width: 16em;
+    padding: 4em 1.5em 1em;
+  }
+  .registration-btn {
+    color: rgba(255, 255, 255, 0.877);
+  }
+}

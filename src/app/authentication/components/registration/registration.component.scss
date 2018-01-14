@@ -1,0 +1,29 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.registration-wrapper{
+    @include container(100vw, 100%);
+    background-color: $accent;
+    padding: .25em 1.25em;
+    
+
+    .registration-card{
+        padding: 4em 3.5em 2em 2em;
+
+        .registration-form{
+            width: 100%;
+
+            .registration-form-field{
+                width: 100%;
+
+                .mail-icon{
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .registration-btn{
+            color: white
+        }
+    }
+}

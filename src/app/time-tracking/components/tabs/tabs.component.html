@@ -1,3 +1,32 @@
-<p>
-  tabs works!
-</p>
+<section class="tabs-wrapper">
+
+  <mat-tab-group class="tabs-tab-group" mat-stretch-tabs (selectedTabChange)="onTabChange($event)">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>tabs</mat-icon>
+      </ng-template>
+      <div class="tabs-tab-content">
+        <app-entry [selectedTabIndex]="selectedTabIndex" [tags]="tags" [categories]="categories"></app-entry>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>history</mat-icon>
+      </ng-template>
+      <div class="tabs-tab-content">
+        <app-history [selectedTabIndex]="selectedTabIndex" [timerecords]="timerecords"></app-history>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>settings</mat-icon>
+      </ng-template>
+      <div class="tabs-tab-content">
+        <app-settings [selectedTabIndex]="selectedTabIndex" [tags]="tags" [categories]="categories"></app-settings>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</section>

@@ -1,3 +1,22 @@
-<p>
-  history works!
-</p>
+<section class="history-wrapper">
+
+  <mat-card>
+    <mat-card-title>History</mat-card-title>
+    <mat-card-subtitle *ngIf="timerecords.length == 0">No records found</mat-card-subtitle>
+    <mat-card-content>
+      <mat-list dense>
+        <div *ngFor="let groupedEntryByDay of groupedEntriesByDay; let i = index">
+          <h3 mat-subheader>Day {{groupedEntryByDay.date | date}}</h3>
+          <mat-list-item *ngFor="let record of groupedEntryByDay.records">
+            <mat-icon mat-list-icon color="primary">mode_edit</mat-icon>
+            <h2 mat-line>{{record.category}}</h2>
+            <h4 mat-line> {{record.note}} </h4>
+            <em>{{record.time + "h"}}</em>
+          </mat-list-item>
+          <mat-divider *ngIf="!(i === groupedEntriesByDay.length -1)"></mat-divider>
+        </div>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+</section>

@@ -1,0 +1,21 @@
+@import "../../../styles/mixins";
+
+.entry-wrapper{
+    @include container(100%);
+
+    .entry-card{
+        @include container(95%);
+        padding: 15% 15% 10%;
+    }
+    
+    .full-width{
+        width: 100%;
+    }
+
+    .entry-timer-btn{
+        position: absolute; 
+        bottom: 1em;
+        left: 1em;
+    }
+
+}

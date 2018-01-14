@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-settings',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-
+  @Input() selectedTabIndex;
+  @Input() categories: string[] = [];
+  @Input() tags: string[] = [];
   constructor() { }
 
   ngOnInit() {

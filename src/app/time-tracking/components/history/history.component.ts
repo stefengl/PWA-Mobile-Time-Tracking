@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TimeRecordModel } from '../../shared/models/time-record.model';
+import { TimeRecordBundlerService } from '../../shared/provider/time-record-bundler.service';
+import { TimeRecordGroupModel } from '../../shared/models/time-record-group.model';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  @Input() selectedTabIndex;
+  @Input() timerecords: TimeRecordModel[] = [];
 
-  ngOnInit() {
+  groupedEntriesByDay: TimeRecordGroupModel[] = [];
+
+  constructor(private bundler: TimeRecordBundlerService) { }
+
+  ngOnInit() { }
+
+
+  ngOnChanges() {
+    this.groupedEntriesByDay = this.bundler.groupRecordsByDate(this.timerecords);
   }
 
 }
