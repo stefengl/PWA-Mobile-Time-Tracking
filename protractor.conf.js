@@ -13,10 +13,10 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome',
     chromeOptions: {
+      binary: process.env.CHROME_BIN,
       args: ["--headless", "--disable-gpu", "--window-size=800,600"],
     }
   },
-  chromeDriver:process.env.CHROME_BIN,
   executablePath: process.env.CHROME_BIN,
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
