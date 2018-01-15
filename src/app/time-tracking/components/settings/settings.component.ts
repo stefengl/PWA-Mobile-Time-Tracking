@@ -26,7 +26,9 @@ export class SettingsComponent {
     'Feedback'
   ];
 
-  env: string = (environment.production) ? 'Production' : 'Development';
+  env: string = (environment.production)
+    ? 'Production'
+    : 'Development';
 
   constructor(
     private snack: MatSnackBar,

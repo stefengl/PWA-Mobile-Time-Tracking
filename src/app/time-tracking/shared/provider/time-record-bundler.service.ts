@@ -15,18 +15,22 @@ export class TimeRecordBundlerService {
  * Takes all unsorted records of a user.
  * First sorts them by date.
  * Then groups them in multiple arrays by day.
- * Reverses the array so we have our last entry 
+ * Reverses the array so we have our last entry
  * seen first in our history.
  *
  * @returns grouped records by day
  */
   groupRecordsByDate(records: TimeRecordModel[]): TimeRecordGroupModel[] {
-
+    
     const dailyEntries: TimeRecordGroupModel[] = [];
+
+    if (!records || records.length < 0) {
+      return dailyEntries;
+    }
 
     const bundledRecords: _.Dictionary<TimeRecordModel[]> = _.chain(records)
       .sortBy(r => r.date)
-      .groupBy(r => r.date)
+      .groupBy(r => r.date.getDate())
       .value();
 
     _.each(bundledRecords, records => {

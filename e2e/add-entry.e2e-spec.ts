@@ -1,33 +1,37 @@
-import { AppPage } from "./app.po";
-import { setTimeout } from "timers";
+import { AppPage } from './app.po';
+import { setTimeout } from 'timers';
 
-describe('Testing to add new entries as an authenticated user', () => {
-    let page: AppPage;
-    let mail = "stef.engl.se@gmail.com";
-    let pw = 'Affe1234';
+describe(
+    'Testing to add new entries as an authenticated user',
+    () => {
+        let page: AppPage;
+        const mail = 'stef.engl.se@gmail.com';
+        const pw = 'Affe1234';
 
-    beforeEach((done) => {
-        page = new AppPage();
-        page.init()
-            .then(() => {
-                page.navigateTo("")
+        beforeEach((done) => {
+            page = new AppPage();
+            page.init()
                 .then(() => {
-                    page.login(mail, pw)
+                    page.navigateTo('')
                         .then(() => {
-                            done();
-                        })
-                })
-            })
+                            page.login(mail, pw)
+                                .then(() => {
+                                    done();
+                                });
+                        });
+                });
+        });
+
+
+        it(
+            'Authenticated user should be able to add new entries',
+            (done) => {
+
+                page.addEntry()
+                    .then((isSuccess: boolean) => {
+                        expect(isSuccess).toBe(true);
+                        done();
+                    });
+            });
+
     });
-
-
-    it('Authenticated user should be able to add new entries', (done) => {
-
-        page.addEntry()
-            .then((isSuccess: boolean) => {
-                expect(isSuccess).toBe(true);
-                done()
-            })
-    });
-
-});
