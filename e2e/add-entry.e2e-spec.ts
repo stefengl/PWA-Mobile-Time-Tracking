@@ -1,42 +1,33 @@
-import { AppPage } from './app.po';
+import { AppPage } from "./app.po";
+import { setTimeout } from "timers";
 
-describe('Authenticated User wants to create a new TimeRecord', () => {
-
-    let app: AppPage;
+describe('Testing to add new entries as an authenticated user', () => {
+    let page: AppPage;
+    let mail = "stef.engl.se@gmail.com";
+    let pw = 'Affe1234';
 
     beforeEach((done) => {
-        app = new AppPage();
-        app.init();
-        app.setupWindowSize().then(() => {
-            done();
-        });
+        page = new AppPage();
+        page.init()
+            .then(() => {
+                page.navigateTo("")
+                .then(() => {
+                    page.login(mail, pw)
+                        .then(() => {
+                            done();
+                        })
+                })
+            })
     });
 
-    it('User with valid credentials should login', (done) => {
-        const expected = '/';
 
-        app.navigateTo('/login');
-        app.loginWith('stef.engl.se@gmail.com', 'Affe1234').then(() => {
+    it('Authenticated user should be able to add new entries', (done) => {
 
-            app.getCurrentUrl().then((url: string) => {
-                expect(url).toMatch(expected);
-                done();
-            });
-        });
+        page.addEntry()
+            .then((isSuccess: boolean) => {
+                expect(isSuccess).toBe(true);
+                done()
+            })
     });
-
-    it('', (done) => {
-        const expected = '/';
-
-        app.navigateTo('/login');
-        app.loginWith('stef.engl.se@gmail.com', 'Affe1234').then(() => {
-
-            app.getCurrentUrl().then((url: string) => {
-                expect(url).toMatch(expected);
-                done();
-            });
-        });
-    });
-
 
 });

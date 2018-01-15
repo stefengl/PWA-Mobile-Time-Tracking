@@ -27,8 +27,7 @@ export class EntryComponent implements OnInit {
     private data: DataService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   public addRecord(): void {
     let messageInfo = 'Invalid form';

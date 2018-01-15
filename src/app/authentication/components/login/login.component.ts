@@ -13,8 +13,8 @@ import { AuthenticationService } from '../../shared/provider/authentication.serv
 export class LoginComponent implements OnInit {
 
   loginModel: LoginModel = {
-    email: 'stef.engl.se@gmail.com',
-    password: 'Affe1234'
+    email: '',
+    password: ''
   };
 
   constructor(

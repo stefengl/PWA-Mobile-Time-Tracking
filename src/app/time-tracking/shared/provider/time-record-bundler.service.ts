@@ -8,6 +8,18 @@ export class TimeRecordBundlerService {
 
   constructor() { }
 
+  /**
+ * @param {TimeRecordModel[]} records
+ *
+ * @example
+ * Takes all unsorted records of a user.
+ * First sorts them by date.
+ * Then groups them in multiple arrays by day.
+ * Reverses the array so we have our last entry 
+ * seen first in our history.
+ *
+ * @returns grouped records by day
+ */
   groupRecordsByDate(records: TimeRecordModel[]): TimeRecordGroupModel[] {
 
     const dailyEntries: TimeRecordGroupModel[] = [];
